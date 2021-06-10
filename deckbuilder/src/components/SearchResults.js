@@ -1,11 +1,23 @@
-// src/components/SearchResults.js
 
 import React from 'react';
+
+import './SearchResults.css';
+
+import Card from './Card';
 
 const SearchResults = ({ results }) => {
   return (
     <div id="results">
-      <h3>Here's what we found ({ results.length } results):</h3>
+      <h3>
+        Here's what we found ({ results.length } results):
+      </h3>
+      <div className="CardList">
+        {
+          results.map(result => (
+            <Card key={ result.id } {...result} />
+          ))
+        }
+      </div>
     </div>
   );
 }
